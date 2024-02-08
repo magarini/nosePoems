@@ -1,3 +1,8 @@
+let windowAspect;
+let w, h;
+
+let elementW,elementH;
+let sceneW,sceneH;
 
 let video;
 let poseNet;
@@ -73,10 +78,10 @@ function preload() {
   let element8=loadImage("digidear/Paint Layer 7.PNG");
   let element9=loadImage("digidear/Paint Layer 8.PNG");
   // to change
-  let element10=loadImage("digidear/Paint Layer 3.PNG");
+  let element10=loadImage("tumblr.jpg");
   let element11=loadImage("digidear/Paint Layer 10.PNG");
   let element12=loadImage("digidear/Paint Layer 11.PNG");
-  let element13=loadImage("digidear/Paint Layer 11.PNG");
+  let element13=loadImage("desk.jpg");
 
 
   elements=[element0,element1,element2,element3,element4,element5,element6,element7,element8,element9,element10,element11,element12,element13];
@@ -90,6 +95,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  windowAspect = width / height;
   video = createCapture(VIDEO);
   video.size(width, height);
 
@@ -126,8 +132,19 @@ function setup() {
 
 
 //initial scene
-  imageMode(CENTER);
-  image(scenes[sceneIndex], width / 2, height / 2);
+let imageAspect = scenes[sceneIndex].width / scenes[sceneIndex].height;
+  // This code naively crops the bottom or right edge of the image as necessary. Obviously there are other ways to limit the image size.
+  if (windowAspect >= imageAspect) {
+    // Our window is wider than our image, we need to constrain the height of the image
+    sceneW = scenes[sceneIndex].width;
+    sceneH = sceneW/ windowAspect;
+  } else {
+    // Our window is narrower than or image, we need to constrain the width of the image
+    sceneH = scenes[sceneIndex].height;
+    sceneW = sceneH * windowAspect;
+  }
+  // imageMode(CENTER);
+  image(scenes[sceneIndex], 0, 0, windowWidth, windowHeight, 0, 0,sceneW, sceneH);
 
 }
 
@@ -161,7 +178,20 @@ function draw() {
 
   //adding elements
   for (i=0; i<elementIndex; i++){
-  image(elements[elementIndex],width/2,height/2);
+    let imageAspect = elements[elementIndex].width / elements[elementIndex].height;
+  // This code naively crops the bottom or right edge of the image as necessary. Obviously there are other ways to limit the image size.
+  if (windowAspect >= imageAspect) {
+    // Our window is wider than our image, we need to constrain the height of the image
+    elementW = elements[elementIndex].width;
+    elementH =  elementW / windowAspect;
+  } else {
+    // Our window is narrower than or image, we need to constrain the width of the image
+    elementH = elements[elementIndex].height;
+    elementW = elementH * windowAspect;
+  }
+
+  imageMode(CORNER);
+  image(elements[elementIndex],0, 0, windowWidth, windowHeight, 0, 0, elementW, elementH);
   }
 
 
@@ -182,8 +212,8 @@ function draw() {
         nose.y >= bounds.y &&
         nose.y <= bounds.y + bounds.h
       ) {
-        imageMode(CENTER);
-        image(elements[8],  nose.x, nose.y);
+        // imageMode(CENTER);
+        // image(elements[8],  nose.x, nose.y);
         thought = random(thoughts);
         x += random(-5, 5);
         y += random(-5, 5);
@@ -192,6 +222,8 @@ function draw() {
   
     //interactive poem
     fill('#5f6a8d');
+    imageMode(CENTER);
+
     image(textHighlighter,  x, y);
     text(thought, x, y);
     bounds = font.textBounds(thought, x, y, fontsize);
@@ -217,7 +249,20 @@ function addelementture(){
 
 function restart(){
   // clear()
-  image(scenes[sceneIndex], width / 2, height / 2);
+  
+imageAspect = scenes[sceneIndex].width / scenes[sceneIndex].height;
+  // This code naively crops the bottom or right edge of the image as necessary. Obviously there are other ways to limit the image size.
+  if (windowAspect >= imageAspect) {
+    // Our window is wider than our image, we need to constrain the height of the image
+    w = scenes[sceneIndex].width;
+    h = w / windowAspect;
+  } else {
+    // Our window is narrower than or image, we need to constrain the width of the image
+    h = scenes[sceneIndex].height;
+    w = h * windowAspect;
+  }
+  imageMode(CORNER);
+  image(scenes[sceneIndex], 0, 0, windowWidth, windowHeight, 0, 0, w, h);
   sceneIndex++;
 
   if (sceneIndex>=scenes.length){
@@ -230,4 +275,6 @@ function restart(){
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  windowAspect = width / height;
+
 }
