@@ -32,6 +32,7 @@ let poem = [
   "we direct our thoughts to this space",
   "which breaks into a thousand pieces",
   "that each one has in his pocket",
+  " ",
   "my thoughts so deep in your pocket",
   "that you may never find them",
 ];
@@ -44,10 +45,34 @@ let poem2 = [
 ];
 
 let poem3 = [
-  "i am an extra poem",
+  "the presence of my friends is an idea",
+  "which is materialized on the internet",
+  " ",
+  "I open messenger",
+  "I touch your voicemail"
 ];
 
-let poems = [poem, poem2,poem3];
+let poem4 = [
+  "many messages remain on the doorstep",
+  "of the digital bubble that surrounds me",
+  "my fingers will not touch them",
+  "I leave them intangible up in the cloud",
+  "around my head"
+];
+
+let poem5 = [
+  "we will meet again in San Junipero"
+];
+
+let poem6 = [
+  "the emoji of our conversation on messenger",
+  "was the simple smiling face upside down",
+  " ",
+  "uneasy peasy"
+];
+
+
+let poems = [poem, poem2,poem3,poem4,poem5,poem6];
 
 let message = "breaks into a thousand pieces",
   font,
@@ -234,7 +259,7 @@ function draw() {
 function changePoemPosition() {
   poemPositionX = random(width);
   poemPositionY = random(height);
-  let newPoem = Math.floor(Math.random()*3);
+  let newPoem = Math.floor(Math.random()*6);
   poemOnDisplay = poems[newPoem];
 }
 
