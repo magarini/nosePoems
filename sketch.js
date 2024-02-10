@@ -15,6 +15,8 @@ let elementIndex=0;
 let scenes=[];
 let sceneIndex=0;
 
+let poemIndex=0;
+
 let textHighlighter;
 
 //texts
@@ -44,10 +46,66 @@ let poem2 = [
 ];
 
 let poem3 = [
-  "i am an extra poem",
+  "the presence of my friends is an idea",
+  "which is materialized on the internet",
+  "I open  messenger and touch your voicemail"
 ];
 
-let poems = [poem, poem2,poem3];
+let poem4 = [
+  "the presence of my friends is an idea",
+  "which is materialized on the internet",
+  "I open  messenger and touch your voicemail"
+];
+
+let poem5 = [
+  "many messages remain unread on the doorstep",
+  "of the digital bubble that surrounds me",
+  "I leave them intangible",
+  "up in the cloud around my head"
+];
+
+let poem6 = [
+  "we will meet again in San Junipero"
+];
+
+let poem7 = [
+  "if I sum all the time spend with the significant other",
+  "and the time through the significant device",
+  "I’m not sure who I touched more",
+  "( i always had long distance relationships)"
+];
+
+let poem8 = [
+  "the emoji of our conversation on messenger",
+  "was the simple smiling face upside down",
+  " ",
+  "uneasy peasy"
+];
+
+let poem9 = [
+  "as a teenager I felt agency",
+  "choosing from the circulating images",
+  "the ones that made me relate",
+  "the ones I wanted to dive in",
+  "like a part of me really inhabited them for a while",
+  " ",
+  "from the infinite pool of coolness",
+  "you could choose your own cool package",
+  "and create your own collections of desires",
+  " ",
+  "we grew up curating images",
+  " ",
+  '-we share the knowledge of image-',
+  "was the subtitle of my main tumblr"
+];
+
+let poem10 = [
+  "of course I am wondering what would happen ",
+  "if I trained an AI with all my personal data",
+  "who doesn’t?"
+];
+
+let poems = [poem, poem2,poem3,poem4,poem5,poem6,poem7,poem8,poem9,poem10];
 
 let message = "breaks into a thousand pieces",
   font,
@@ -78,13 +136,39 @@ function preload() {
   let element8=loadImage("digidear/Paint Layer 7.PNG");
   let element9=loadImage("digidear/Paint Layer 8.PNG");
   // to change
-  let element10=loadImage("tumblr.jpg");
+  let element10=loadImage("digidear/Paint Layer 11.PNG");
   let element11=loadImage("digidear/Paint Layer 10.PNG");
   let element12=loadImage("digidear/Paint Layer 11.PNG");
-  let element13=loadImage("desk.jpg");
+  // to change
+  let element13=loadImage("tumblr/Paint Layer 10.PNG");
+  // tumblr
+  let element14=loadImage("tumblr/Paint Layer 2.PNG")
+  let element15=loadImage("tumblr/Paint Layer 3.PNG")
+  let element16=loadImage("tumblr/Paint Layer 4.PNG")
+  let element17=loadImage("tumblr/Paint Layer 5.PNG")
+  // to change
+  let element18=loadImage("tumblr/Paint Layer 16.PNG")
+  let element19=loadImage("tumblr/Paint Layer 8.PNG")
+  let element20=loadImage("tumblr/Paint Layer 9.PNG")
+  let element21=loadImage("tumblr/Paint Layer 10.PNG")
+  let element22=loadImage("tumblr/Paint Layer 11.PNG")
+  let element23=loadImage("tumblr/Paint Layer 13.PNG")
+  let element24=loadImage("tumblr/Paint Layer 14.PNG")
+  let element25=loadImage("tumblr/Paint Layer 15.PNG")
+  let element26=loadImage("tumblr/Paint Layer 16.PNG")
 
 
-  elements=[element0,element1,element2,element3,element4,element5,element6,element7,element8,element9,element10,element11,element12,element13];
+
+
+
+
+
+  elements=[
+    element0,element1,element2,element3,element4,element5,
+    element6,element7,element8,element9,element10,element11,
+    element12,element13,element14,element15,element16,element17,
+    element18,element19,,element20,element21,element22,element23,
+    element24,element25,element26];
 
   let scene0=loadImage("desk.jpg");
   let scene1=loadImage("digideer.jpg");
@@ -121,7 +205,7 @@ function setup() {
   //poemPosition
   poemPositionX = width / 2;
   poemPositionY = height / 2;
-  poemOnDisplay = poems[0];
+  poemOnDisplay = poems[poemIndex];
 
 
   //timeRenewal
@@ -234,8 +318,13 @@ function draw() {
 function changePoemPosition() {
   poemPositionX = random(width);
   poemPositionY = random(height);
-  let newPoem = Math.floor(Math.random()*3);
-  poemOnDisplay = poems[newPoem];
+  // random
+  // let newPoem = Math.floor(Math.random()*3);
+  poemOnDisplay = poems[poemIndex];
+  poemIndex++;
+  if(poemIndex>=poems.length){
+    poemIndex=0;
+  }
 }
 
 
@@ -269,7 +358,7 @@ imageAspect = scenes[sceneIndex].width / scenes[sceneIndex].height;
     sceneIndex=0;
   }
 
-  console.log('restarted',scenes[sceneIndex])
+  // console.log('restarted',scenes[sceneIndex])
 
 }
 
