@@ -157,6 +157,37 @@ function preload() {
   let element25=loadImage("tumblr/Paint Layer 15.PNG")
   let element26=loadImage("tumblr/Paint Layer 16.PNG")
 
+  let element27=loadImage("digihistory-reorganizedlayers/Paint Layer 1.PNG")
+  let element28=loadImage("digihistory-reorganizedlayers/Paint Layer 3 Merged.PNG")
+  let element29=loadImage("digihistory-reorganizedlayers/Paint Layer 6.PNG")
+  let element30=loadImage("digihistory-reorganizedlayers/Paint Layer 7.PNG")
+  let element31=loadImage("digihistory-reorganizedlayers/Paint Layer 10.PNG")
+  let element32=loadImage("digihistory-reorganizedlayers/Paint Layer 11 Merged.PNG")
+  let element33=loadImage("digihistory-reorganizedlayers/Paint Layer 13.PNG")
+  let element34=loadImage("digihistory-reorganizedlayers/Paint Layer 17 Merged.PNG")
+  let element35=loadImage("digihistory-reorganizedlayers/Paint Layer 18 Merged.PNG")
+  let element36=loadImage("digihistory-reorganizedlayers/Paint Layer 19 Merged.PNG")
+  let element37=loadImage("digihistory-reorganizedlayers/Untitled23.png Merged.PNG")
+  let element38=loadImage("digihistory-reorganizedlayers/Paint Layer 22 Merged.PNG")
+  let element39=loadImage("digihistory-reorganizedlayers/Paint Layer 26.PNG")
+  let element40=loadImage("digihistory-reorganizedlayers/Paint Layer 38.PNG")
+  let element41=loadImage("digihistory-reorganizedlayers/Paint Layer 39.PNG")
+  let element42=loadImage("digihistory-reorganizedlayers/Paint Layer 41.PNG")
+  let element43=loadImage("digihistory-reorganizedlayers/Paint Layer 42.PNG")
+  let element44=loadImage("digihistory-reorganizedlayers/Paint Layer 45.PNG")
+  let element45=loadImage("digihistory-reorganizedlayers/Paint Layer 46.PNG")
+  let element46=loadImage("digihistory-reorganizedlayers/Paint Layer 47.PNG")
+  let element47=loadImage("digihistory-reorganizedlayers/Paint Layer 48.PNG")
+  let element48=loadImage("digihistory-reorganizedlayers/Paint Layer 52.PNG")
+  let element49=loadImage("digihistory-reorganizedlayers/Paint Layer 55.PNG")
+  let element50=loadImage("digihistory-reorganizedlayers/Untitled.png Merged.PNG")
+  let element51=loadImage("digihistory-reorganizedlayers/Paint Layer 57.PNG")
+  let element52=loadImage("digihistory-reorganizedlayers/Untitled5.png Merged.PNG")
+  let element53=loadImage("digihistory-reorganizedlayers/Paint Layer 58.PNG")
+  let element54=loadImage("digihistory-reorganizedlayers/Paint Layer 59.PNG")
+
+
+
 
 
 
@@ -167,13 +198,24 @@ function preload() {
     element0,element1,element2,element3,element4,element5,
     element6,element7,element8,element9,element10,element11,
     element12,element13,element14,element15,element16,element17,
-    element18,element19,,element20,element21,element22,element23,
-    element24,element25,element26];
+    element18,element19,element20,element21,element22,element23,
+    element24,element25,element26,element27,element28,element29,
+    element30,element31,element32,element33,element34,element35,
+    element36,element37,element38,element39,element40,element41,
+    element42,element43,element44,element45,element46,element47,
+    element48,element49,element50,element51,element52,element53,
+    element54];
 
   let scene0=loadImage("desk.jpg");
   let scene1=loadImage("digideer.jpg");
   let scene2=loadImage("tumblr.jpg");
-  scenes=[scene0,scene1,scene2]
+  let scene3=loadImage("digihistory.jpg");
+  let scene4=loadImage("messenger.jpg");
+  let scene5=loadImage("space.jpg");
+
+
+
+  scenes=[scene0,scene1,scene2,scene3,scene4,scene5]
 
 }
 
@@ -262,6 +304,7 @@ function draw() {
 
   //adding elements
   for (i=0; i<elementIndex; i++){
+    console.log('problem',elementIndex)
     let imageAspect = elements[elementIndex].width / elements[elementIndex].height;
   // This code naively crops the bottom or right edge of the image as necessary. Obviously there are other ways to limit the image size.
   if (windowAspect >= imageAspect) {
@@ -320,11 +363,12 @@ function changePoemPosition() {
   poemPositionY = random(height);
   // random
   // let newPoem = Math.floor(Math.random()*3);
-  poemOnDisplay = poems[poemIndex];
+
   poemIndex++;
   if(poemIndex>=poems.length){
     poemIndex=0;
   }
+  poemOnDisplay = poems[poemIndex];
 }
 
 
@@ -339,7 +383,7 @@ function addelementture(){
 function restart(){
   // clear()
   
-imageAspect = scenes[sceneIndex].width / scenes[sceneIndex].height;
+let imageAspect = scenes[sceneIndex].width / scenes[sceneIndex].height;
   // This code naively crops the bottom or right edge of the image as necessary. Obviously there are other ways to limit the image size.
   if (windowAspect >= imageAspect) {
     // Our window is wider than our image, we need to constrain the height of the image
@@ -352,12 +396,14 @@ imageAspect = scenes[sceneIndex].width / scenes[sceneIndex].height;
   }
   imageMode(CORNER);
   image(scenes[sceneIndex], 0, 0, windowWidth, windowHeight, 0, 0, w, h);
+
   sceneIndex++;
 
   if (sceneIndex>=scenes.length){
     sceneIndex=0;
   }
 
+  
   // console.log('restarted',scenes[sceneIndex])
 
 }
