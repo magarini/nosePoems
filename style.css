@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 body {
@@ -18,13 +24,15 @@ body {
   color: #122833;
 }
 
-h1{
-    font-size: 4rem;
-    margin:0;
+h1 {
+  font-size: 4rem;
+  margin: 0;
 }
 
-h2{
-    font-size: 2rem;
+h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
 }
 
 a {
@@ -33,8 +41,11 @@ a {
 }
 
 .intro {
+    display:flex;
+    flex-direction: column;
   padding: 32px;
-  max-width: 800px;
+  max-width: 850px;
+  gap:1rem;
 }
 
 footer {
@@ -49,18 +60,18 @@ footer {
   background-color: #e1c9e8;
   padding: 16px 24px;
   text-decoration: none;
-  border-radius:16px;
+  border-radius: 16px;
 }
 
-.help{
-    z-index: 1;
-    border-radius:48px;
-    position:fixed;
-    top:32px;
-    left:32px;
-    width:48px;
-    height:48px;
-    display:flex;
-    justify-content:center;
-    align-items: center;
+.help {
+  z-index: 1;
+  border-radius: 48px;
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

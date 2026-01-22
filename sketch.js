@@ -116,7 +116,7 @@ let poems = [
 let message = "breaks into a thousand pieces",
   font,
   bounds, // holds x, y, w, h of the text's bounding box
-  fontsize = 24,
+  fontsize = 32,
   x,
   y; // x and y coordinates of the text
 
@@ -126,7 +126,7 @@ let poemPositionY;
 let poemOnDisplay;
 
 function preload() {
-  font = loadFont("Poppins-Medium.ttf");
+  font = loadFont("DMSans-Regular.ttf");
 
   textHighlighter = loadImage("digidear/Paint Layer 9.PNG");
 
@@ -307,8 +307,8 @@ function setup() {
   poemOnDisplay = poems[poemIndex];
 
   //timeRenewal
-  setInterval(changePoemPosition, 16000);
-  setInterval(addelementture, 10000);
+  setInterval(changePoemPosition, 10000);
+  setInterval(addelementture, 8000);
   setInterval(restart, 15000);
 
   //initial scene
@@ -352,21 +352,41 @@ function draw() {
   //time-based poem
   push();
   fill(120);
-  textSize(18);
+  textSize(24);
   imageMode(CENTER);
-  image(textHighlighter, poemPositionX, poemPositionY);
 
-  // Calculate bounds for time-based poem
-  let poemBounds = font.textBounds(
+  // Calculate bounds for time-based poem (all lines combined)
+  let poemBoundsFirst = font.textBounds(
     poemOnDisplay[0],
     poemPositionX,
     poemPositionY,
-    18,
+    24,
   );
+  let poemBoundsLast = font.textBounds(
+    poemOnDisplay[poemOnDisplay.length - 1],
+    poemPositionX,
+    poemPositionY + (poemOnDisplay.length - 1) * 32,
+    24,
+  );
+  
+  // Calculate the center X and Y based on the actual text bounds
+  let poemCenterX = poemBoundsFirst.x + poemBoundsFirst.w / 2;
+  let poemCenterY = (poemBoundsFirst.y + poemBoundsLast.y + poemBoundsLast.h) / 2;
+  
+  // Position highlighter at the center of all text
+  image(textHighlighter, poemCenterX, poemCenterY);
 
-  for (i = 0; i < poem.length; i++) {
+  // Calculate bounds for collision detection
+  let poemBounds = {
+    x: poemBoundsFirst.x,
+    y: poemBoundsFirst.y,
+    w: poemBoundsFirst.w,
+    h: poemBoundsLast.y + poemBoundsLast.h - poemBoundsFirst.y,
+  };
+
+  for (i = 0; i < poemOnDisplay.length; i++) {
     // textAlign(CENTER);
-    text(poemOnDisplay[i], poemPositionX, poemPositionY + i * 24);
+    text(poemOnDisplay[i], poemPositionX, poemPositionY + i * 32);
   }
   pop();
 
@@ -449,11 +469,15 @@ function draw() {
   push();
   fill("#5f6a8d");
   imageMode(CENTER);
-
-  image(textHighlighter, x, y);
   textAlign(CENTER);
-  text(thought, x, y);
+
+  // Calculate bounds first
   bounds = font.textBounds(thought, x, y, fontsize);
+  
+  // Position highlighter at the center of the text
+  image(textHighlighter, x, y);
+  
+  text(thought, x, y);
   pop();
 }
 
