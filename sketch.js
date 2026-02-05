@@ -32,7 +32,7 @@ let thoughts = [
   " the love that grows through screens",
   " I can screen myself ",
   "and project myself",
-  "in the glow",
+  "in the glow of the screen",
   "of the screened image of my love",
 ];
 
@@ -46,10 +46,8 @@ let poem = [
 ];
 
 let poem2 = [
-  "on my screen I can be a goddess and make her whatever I want",
-  "if I speak in languages she can understand",
-  "something always gets lost in translation",
-  "something is always lost in language",
+  "we may not leave together",
+  "but some of our thoughts live in the same file"
 ];
 
 let poem3 = [
@@ -95,9 +93,10 @@ let poem9 = [
 ];
 
 let poem10 = [
-  "of course I am wondering what would happen ",
-  "if I trained an AI with all my personal data",
-  "who doesn’t?",
+  "will you get between my text",
+  "as you get between me?",
+  "will you get entangled with me to make a world",
+  "greater than the sum of our parts?",
 ];
 
 let poems = [
@@ -201,7 +200,7 @@ function preload() {
   let element49 = loadImage("digihistory-reorganizedlayers/Paint Layer 55.PNG");
   // let element50 =
   //   loadImage();
-    // "digihistory-reorganizedlayers/Untitled.png Merged.PNG",
+  // "digihistory-reorganizedlayers/Untitled.png Merged.PNG",
   // let element51 = loadImage("digihistory-reorganizedlayers/Paint Layer 57.PNG");
   // let element52 = loadImage(
   //   "digihistory-reorganizedlayers/Untitled5.png Merged.PNG",
@@ -368,11 +367,12 @@ function draw() {
     poemPositionY + (poemOnDisplay.length - 1) * 32,
     24,
   );
-  
+
   // Calculate the center X and Y based on the actual text bounds
   let poemCenterX = poemBoundsFirst.x + poemBoundsFirst.w / 2;
-  let poemCenterY = (poemBoundsFirst.y + poemBoundsLast.y + poemBoundsLast.h) / 2;
-  
+  let poemCenterY =
+    (poemBoundsFirst.y + poemBoundsLast.y + poemBoundsLast.h) / 2;
+
   // Position highlighter at the center of all text
   image(textHighlighter, poemCenterX, poemCenterY);
 
@@ -462,6 +462,10 @@ function draw() {
       }
       x += random(-5, 5);
       y += random(-5, 5);
+      // Constrain text to canvas boundaries
+      bounds = font.textBounds(thought, x, y, fontsize);
+      x = constrain(x, bounds.w / 2, width - bounds.w / 2);
+      y = constrain(y, bounds.h / 2, height - bounds.h / 2);
     }
   }
 
@@ -473,17 +477,26 @@ function draw() {
 
   // Calculate bounds first
   bounds = font.textBounds(thought, x, y, fontsize);
-  
+
   // Position highlighter at the center of the text
   image(textHighlighter, x, y);
-  
+
   text(thought, x, y);
   pop();
 }
 
 function changePoemPosition() {
-  poemPositionX = random(width);
-  poemPositionY = random(height);
+  // Calculate bounds for the poem to ensure it stays on canvas
+  let maxLineWidth = 0;
+  for (let i = 0; i < poemOnDisplay.length; i++) {
+    let lineBounds = font.textBounds(poemOnDisplay[i], 0, 0, 24);
+    maxLineWidth = max(maxLineWidth, lineBounds.w);
+  }
+  let totalHeight = poemOnDisplay.length * 32;
+  
+  // Constrain position to keep text within canvas
+  poemPositionX = constrain(random(width), maxLineWidth / 2, width - maxLineWidth / 2);
+  poemPositionY = constrain(random(height), totalHeight / 2, height - totalHeight / 2);
   // random
   // let newPoem = Math.floor(Math.random()*3);
 
