@@ -29,8 +29,8 @@ let poemTouchCooldown = 300; // milliseconds
 let thought;
 
 let thoughts = [
-  " i share my love through screens",
-  " my love can reach you everywhere",
+  "I share my love through screens",
+  "my love can reach you everywhere",
   "I can always be reachable",
   "you are always potentially there",
   "your door is always there",
@@ -61,11 +61,11 @@ let poem3 = [
 ];
 
 let poem4 = [
-  "i write about you",
-  "i create codes, symbols, casting spells to be around you",
-  "i create my transitional objects of you",
+  "I write about you",
+  "I create codes, symbols, casting spells to be around you",
+  "I create my transitional objects of you",
   "my text is my teddy bear of you",
-  "a toy i can play forever with my imagination",
+  "a toy I can play forever with my imagination",
 ];
 
 let poem5 = [
@@ -81,7 +81,7 @@ let poem7 = [
   "if I sum all the time spent with the significant other",
   "and the time through the significant device",
   "I’m not sure who I touched more",
-  "( i always had long distance relationships)",
+  "( I always had long distance relationships)",
 ];
 
 let poem8 = [
@@ -92,7 +92,7 @@ let poem8 = [
 ];
 
 let poem9 = [
-  "i touch an interface of you",
+  "I touch an interface of you",
   "a less dimensional interface of you",
 ];
 
