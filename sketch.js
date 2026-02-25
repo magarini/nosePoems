@@ -46,7 +46,7 @@ let poem = [
 ];
 
 let poem2 = [
-  "we may not leave together",
+  "we may not live together",
   "but some of our thoughts live in the same file"
 ];
 
