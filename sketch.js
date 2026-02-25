@@ -29,11 +29,15 @@ let poemTouchCooldown = 300; // milliseconds
 let thought;
 
 let thoughts = [
-  " the love that grows through screens",
-  " I can screen myself ",
-  "and project myself",
-  "in the glow of the screen",
-  "of the screened image of my love",
+  " i share my love through screens",
+  " my love can reach you everywhere",
+  "I can always be reachable",
+  "you are always potentially there",
+  "your door is always there",
+  "and potentially, you can always open the door to me",
+  "when you want to",
+  "when you are there for me"
+
 ];
 
 let poem = [
@@ -47,7 +51,7 @@ let poem = [
 
 let poem2 = [
   "we may not live together",
-  "but some of our thoughts live in the same file"
+  "but some of our thoughts do, in the same file"
 ];
 
 let poem3 = [
@@ -74,7 +78,7 @@ let poem5 = [
 let poem6 = ["we will meet again in San Junipero"];
 
 let poem7 = [
-  "if I sum all the time spend with the significant other",
+  "if I sum all the time spent with the significant other",
   "and the time through the significant device",
   "I’m not sure who I touched more",
   "( i always had long distance relationships)",
@@ -82,7 +86,7 @@ let poem7 = [
 
 let poem8 = [
   "the emoji of our conversation on messenger",
-  "was the simple smiling face upside down",
+  "was the simple smiling face, upside down",
   " ",
   "uneasy peasy",
 ];
@@ -93,11 +97,22 @@ let poem9 = [
 ];
 
 let poem10 = [
-  "will you get between my text",
-  "as you get between me?",
-  "will you get entangled with me to make a world",
-  "greater than the sum of our parts?",
+  "will you get inside my text",
+  "the way you get inside me?",
+  "will you intertwine with me to create a world",
+  "bigger than the sum of our parts?",
 ];
+
+let poem11=[
+  "emails are the most romantic mean of communication",
+  "a place to stay with yourself in the company of the other",
+  "with a real person to address your thought to",
+  "in your own time",
+  "the space to express everything,",
+  "from a single word to 2.000",
+  "and all the time of your life to do it"
+]
+
 
 let poems = [
   poem,
@@ -110,6 +125,7 @@ let poems = [
   poem8,
   poem9,
   poem10,
+  poem11
 ];
 
 let message = "breaks into a thousand pieces",
