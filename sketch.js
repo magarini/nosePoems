@@ -185,23 +185,23 @@ function preload() {
   let element30 = loadImage("digihistory-reorganizedlayers/Paint Layer 7.PNG");
   let element31 = loadImage("digihistory-reorganizedlayers/Paint Layer 10.PNG");
   let element32 = loadImage(
-    "digihistory-reorganizedlayers/Paint Layer 11 Merged.PNG",
+    "digihistory-reorganizedlayers/Paint Layer 13.PNG",
   );
   let element33 = loadImage("digihistory-reorganizedlayers/Paint Layer 13.PNG");
   let element34 = loadImage(
-    "digihistory-reorganizedlayers/Paint Layer 17 Merged.PNG",
+    "digihistory-reorganizedlayers/Paint Layer 13.PNG",
   );
   let element35 = loadImage(
-    "digihistory-reorganizedlayers/Paint Layer 18 Merged.PNG",
+    "digihistory-reorganizedlayers/Paint Layer 45.PNG",
   );
   let element36 = loadImage(
-    "digihistory-reorganizedlayers/Paint Layer 19 Merged.PNG",
+    "digihistory-reorganizedlayers/Paint Layer 45.PNG",
   );
   // let element37 = loadImage(
   //   "digihistory-reorganizedlayers/Untitled23.png Merged.PNG",
   // );
   let element38 = loadImage(
-    "digihistory-reorganizedlayers/Paint Layer 22 Merged.PNG",
+    "digihistory-reorganizedlayers/Paint Layer 45.PNG",
   );
   let element39 = loadImage("digihistory-reorganizedlayers/Paint Layer 26.PNG");
   let element40 = loadImage("digihistory-reorganizedlayers/Paint Layer 38.PNG");
