@@ -19,9 +19,17 @@ body {
   align-items: flex-start;
   width: 100vw;
   height: 100vh;
+  max-height: 100vh;
   margin: 0;
   padding: 0;
   color: #122833;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 32px;
 }
 
 h1 {
@@ -41,11 +49,10 @@ a {
 }
 
 .intro {
-    display:flex;
-    flex-direction: column;
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
   max-width: 850px;
-  gap:1rem;
+  gap: 1rem;
 }
 
 footer {
@@ -54,6 +61,33 @@ footer {
   justify-content: space-between;
   width: 100vw;
   box-sizing: border-box;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+
+.quote .text {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.quote .credits {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.credits a {
+  color: #122833;
+  text-decoration: underline;
+  font-size: 0.8rem;
 }
 
 .button {
@@ -61,6 +95,7 @@ footer {
   padding: 16px 24px;
   text-decoration: none;
   border-radius: 16px;
+  align-self: flex-end;
 }
 
 .help {
